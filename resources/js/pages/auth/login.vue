@@ -55,6 +55,7 @@
 <script>
 import Form from 'vform'
 import LoginWithGithub from '~/components/LoginWithGithub'
+import { mapGetters } from 'vuex'
 
 export default {
     middleware: 'guest',
@@ -72,6 +73,11 @@ export default {
         }),
         remember: false
     }),
+     computed: {
+        ...mapGetters({
+            user: 'auth/user'
+        }),
+    },
 
     methods: {
         async login(){
@@ -81,7 +87,13 @@ export default {
                 remember: this.remember
             })
             await this.$store.dispatch('auth/fetchUser')
-            this.$router.push({ name: 'tablaClientes' })
+            if(this.user.rol==1){
+                this.$router.push({ name: 'tablaUsuarios' })
+
+            }else{
+                this.$router.push({ name: 'tablaClientes' })
+                
+            }
         }
     }
 }

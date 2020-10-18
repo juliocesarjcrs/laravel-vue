@@ -32,7 +32,7 @@ export default {
     name: 'MainLayout',
     components: {
         Navbar,
-        MenuLateral: () => import('~/components/Menu_old2')
+        MenuLateral: () => import('~/components/MenuLateral')
 
     },
     computed: mapGetters({

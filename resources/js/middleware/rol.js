@@ -5,7 +5,7 @@ export default async (to, from, next) => {
         next({ name: 'login' })
     }
     else if(store.getters['auth/user'].rol ===2){
-        next({ name: 'error' })
+        next({ name: 'sinPermisos' })
     } else {
         next()
     }

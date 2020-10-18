@@ -29,7 +29,7 @@
                                 </el-radio>
                             </el-radio-group>
                         </div>
-                        <div class="col-5 mt-3">
+                        <div v-show="!modoEdicion" class="col-5 mt-3">
                             <label for="" class="f-12 text-muted ml-2 mb-0 lbl-select w-100">Contraseña</label>
                             <ValidationProvider v-slot="{ errors }" name="contraseña" :rules="`${ modoEdicion? '' : 'required|min:6'}`">
                                 <el-input v-model="form.password" placeholder="Please input password" show-password :disabled="modoEdicion" />

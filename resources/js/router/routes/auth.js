@@ -10,8 +10,10 @@ export default [
     { path: '/email/resend', name: 'verification.resend', component: page('auth/verification/resend.vue') },
     
     // { path: '/home', name: 'home', component: page('usuarios/listaUser.vue') },
+    { path: '/no-permitido', name: 'sinPermisos', component: page('errors/401.vue') },
     { path: '/usuarios', name: 'tablaUsuarios', component: page('usuarios/listaUser.vue') },
     { path: '/clientes', name: 'tablaClientes', component: page('clientes/listaClientes.vue') },
+    { path: '/productos', name: 'tablaProductos', component: page('productos/listaProductos.vue') },
     { path: '/settings',
         component: page('settings/index.vue'),
         children: [
