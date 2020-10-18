@@ -1,5 +1,5 @@
 <template>
-    <el-menu default-active="2" class="el-menu-vertical-demo position-fixed h-100" style="z-index:15;top:0;" :collapse="isCollapse" @open="handleOpen" @close="handleClose">
+    <el-menu :default-active="activeIndex" class="el-menu-vertical-demo position-fixed h-100" style="z-index:15;top:0;" :collapse="isCollapse" @open="handleOpen" @close="handleClose">
         <el-menu-item index="1">
             <i v-show="isCollapse==true" class="el-icon-menu" @click="isCollapse=false" />
             <i v-show="isCollapse==false" class="el-icon-s-grid" @click="isCollapse=true" />
@@ -27,7 +27,8 @@ export default {
 
     data(){
         return {
-            isCollapse: true
+            isCollapse: true,
+            activeIndex: '2'
         }
     },
     computed: {
@@ -36,7 +37,11 @@ export default {
         }),
     },
     mounted(){
-        console.log('menu', this.user.rol);
+        if( this.$route.name ==='tablaProductos'){
+            this.activeIndex= '4'        
+        }else if(this.$route.name ==='tablaClientes'){
+            this.activeIndex= '3'        
+        }
     },
     methods: {
         handleOpen(key, keyPath){
@@ -45,9 +50,7 @@ export default {
         handleClose(key, keyPath){
             // console.log(key, keyPath)
         },
-        prueba(){
-            console.log('prueba');
-        }
+
     }
 }
 </script>
